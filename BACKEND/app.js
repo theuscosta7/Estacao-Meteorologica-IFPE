@@ -12,6 +12,7 @@ const routes = require("./routes/router")
 app.use("/api", routes)
 
 const port = 3000
-app.listen(port, function () {
-    console.log(`Servidor Ativo em http://localhost:${port}`)
+
+app.listen(port, "0.0.0.0", () => {
+    console.log(`Servidor ativo em http://192.168.18.159:${port}`)
 })
