@@ -19,10 +19,12 @@ export default function Dashboard() {
     async function loadWeather() {
       const data = await getWeatherData()
       setWeather(data)
+
+      const historyData = await getWeatherHistory()
+      setHistory(historyData)
     }
 
     loadWeather()
-    setHistory(getWeatherHistory())
   }, [])
 
   return (

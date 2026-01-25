@@ -1,9 +1,16 @@
-export function getWeatherHistory() {
-  return [
-    { time: "08:00", temperature: 22 },
-    { time: "09:00", temperature: 23 },
-    { time: "10:00", temperature: 24 },
-    { time: "11:00", temperature: 26 },
-    { time: "12:00", temperature: 27 },
-  ]
+import api from "./api"
+
+export async function getWeatherHistory() {
+  const response = await api.get("/getAll")
+
+  return response.data
+    .slice()
+    .reverse()
+    .map(item => ({
+      time: new Date(item.timestamp).toLocaleTimeString("pt-BR", {
+        hour: "2-digit",
+        minute: "2-digit"
+      }),
+      temperature: item.temperature
+    }))
 }
