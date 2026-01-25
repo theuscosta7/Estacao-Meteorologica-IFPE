@@ -12,9 +12,11 @@ export default function Historico() {
         console.log("DADOS DO BACKEND:", response)
 
         const formattedData = response.map(item => {
-          const date = item.createdAt
-            ? new Date(item.createdAt)
-            : new Date()
+          const date = item.timestamp
+            ? new Date(item.timestamp)
+            : item.createdAt
+              ? new Date(item.createdAt)
+              : new Date()
 
           return {
             time: date.toLocaleTimeString("pt-BR", {
@@ -22,8 +24,14 @@ export default function Historico() {
               minute: "2-digit"
             }),
             temperature: item.temperature ?? "--",
-            humidity: item.humidity ?? "--",
-            pressure: item.pressure ?? "--"
+            humidity:
+              item.humidity !== undefined && item.humidity !== null
+                ? item.humidity
+                : "--",
+            pressure:
+              item.pressure !== undefined && item.pressure !== null
+                ? item.pressure
+                : "--"
           }
         })
 

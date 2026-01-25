@@ -17,11 +17,27 @@ export default function Dashboard() {
 
   useEffect(() => {
     async function loadWeather() {
-      const data = await getWeatherData()
-      setWeather(data)
+      try {
+        // Dados atuais
+        const data = await getWeatherData()
+        setWeather(data)
 
-      const historyData = await getWeatherHistory()
-      setHistory(historyData)
+        // Histórico bruto da API
+        const historyData = await getWeatherHistory()
+
+        // 🔧 FORMATANDO PARA O GRÁFICO
+        const formattedHistory = historyData.map(item => ({
+          time: new Date(item.timestamp).toLocaleTimeString("pt-BR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+          temperature: item.temperature,
+        }))
+
+        setHistory(formattedHistory)
+      } catch (error) {
+        console.error("Erro ao carregar dashboard:", error)
+      }
     }
 
     loadWeather()
