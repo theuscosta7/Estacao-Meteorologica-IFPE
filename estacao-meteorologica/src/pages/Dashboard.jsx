@@ -18,14 +18,11 @@ export default function Dashboard() {
   useEffect(() => {
     async function loadWeather() {
       try {
-        // Dados atuais
         const data = await getWeatherData()
         setWeather(data)
 
-        // Histórico bruto da API
         const historyData = await getWeatherHistory()
 
-        // 🔧 FORMATANDO PARA O GRÁFICO
         const formattedHistory = historyData.map(item => ({
           time: new Date(item.timestamp).toLocaleTimeString("pt-BR", {
             hour: "2-digit",
@@ -45,7 +42,6 @@ export default function Dashboard() {
 
   return (
     <>
-      {/* Cards */}
       <main className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <WeatherCard
           title="Temperatura"
@@ -80,7 +76,6 @@ export default function Dashboard() {
         />
       </main>
 
-      {/* Gráfico */}
       <section className="p-6">
         <WeatherChart data={history} />
       </section>
