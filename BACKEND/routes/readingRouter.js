@@ -5,4 +5,4 @@ router.route("/createReadings").post((req, res) => readingController.create(req,
 router.route("/getAll").get((req, res) => readingController.getAll(req, res))
 
 
-module.exports = router
+module.exports = router     

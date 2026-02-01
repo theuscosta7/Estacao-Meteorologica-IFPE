@@ -9,9 +9,8 @@ export default function WeatherCard({ title, value, unit, icon, color = "blue" }
 
   return (
     <div
-      className={`rounded-2xl p-6 text-white shadow-lg bg-gradient-to-br ${
-        colors[color] || colors.blue
-      }`}
+      className={`rounded-2xl p-6 text-white shadow-lg bg-gradient-to-br ${colors[color] || colors.blue
+        }`}
     >
       <div className="flex items-center justify-between">
         <div>
