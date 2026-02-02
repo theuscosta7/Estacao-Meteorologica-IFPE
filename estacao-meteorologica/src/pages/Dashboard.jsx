@@ -14,31 +14,51 @@ export default function Dashboard() {
   })
 
   const [history, setHistory] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     async function loadWeather() {
       try {
-        const data = await getWeatherData()
-        setWeather(data)
+        setLoading(true)
+        console.log("Carregando dados do dashboard...")
+
+        const currentData = await getWeatherData()
+        console.log("Dados atuais carregados:", currentData)
+        setWeather(currentData)
 
         const historyData = await getWeatherHistory()
+        console.log("Histórico carregado:", historyData)
 
-        const formattedHistory = historyData.map(item => ({
-          time: new Date(item.timestamp).toLocaleTimeString("pt-BR", {
+        const lastTen = historyData.slice(0, 10).reverse()
+
+        const formattedHistory = lastTen.map(item => ({
+          time: new Date(item.createdAt).toLocaleTimeString("pt-BR", {
             hour: "2-digit",
             minute: "2-digit",
           }),
-          temperature: item.temperature,
+          temperature: item.temperature || 0,
         }))
 
+        console.log("Histórico formatado para gráfico:", formattedHistory)
         setHistory(formattedHistory)
       } catch (error) {
         console.error("Erro ao carregar dashboard:", error)
+      } finally {
+        setLoading(false)
       }
     }
 
     loadWeather()
   }, [])
+
+  if (loading) {
+    return (
+      <div className="p-6 text-center">
+        <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+        <p className="mt-2 text-slate-600">Carregando dados...</p>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -53,7 +73,7 @@ export default function Dashboard() {
 
         <WeatherCard
           title="Umidade"
-          value={weather.humidity}
+          value={weather.humidity ?? "--"}
           unit="%"
           color="blue"
           icon={<Droplets size={28} />}
@@ -77,7 +97,16 @@ export default function Dashboard() {
       </main>
 
       <section className="p-6">
-        <WeatherChart data={history} />
+        <h2 className="text-xl font-semibold text-slate-800 mb-4">
+          Variação de Temperatura (Últimas 10 medições)
+        </h2>
+        {history.length > 0 ? (
+          <WeatherChart data={history} />
+        ) : (
+          <div className="bg-white rounded-xl p-8 text-center shadow">
+            <p className="text-slate-500">Nenhum dado disponível para exibir no gráfico</p>
+          </div>
+        )}
       </section>
     </>
   )
