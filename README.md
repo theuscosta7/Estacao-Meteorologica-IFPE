@@ -2,7 +2,7 @@
 <h3> Alunos: Mateus Costa e Adriel Aigle </h3>
 
 <h3> Este projeto é um sistema de monitoramento climático que utiliza uma estrutura Full Stack para coletar, armazenar e exibir dados de sensores (como o ESP32). 
-  O sistema conta com um backend em Node.js com Mongoose, banco de dados MongoDB Atlas e um frontend com React + Tailwind responsivo com gráficos em tempo real. </h3>
+  O sistema conta com um backend em Node.js com Mongoose, banco de dados MongoDB Atlas e um frontend com React + Boostrap responsivo com gráficos em tempo real. </h3>
 
 <h3> Fluxo de Desenvolvimento e Demonstração: </h3>
 <h4> 1. Conexão com o Banco de Dados
@@ -18,7 +18,8 @@ Para garantir a integridade das informações, definimos uma estrutura rigorosa 
 <h4> 3. Interface Web Inicial
   
 Estado inicial da plataforma antes do recebimento de dados. O Dashboard está pronto para renderizar os cards e o histórico assim que as primeiras leituras forem detectadas. </h4>
-<img width="1882" height="467" alt="Captura de tela 2026-01-27 180559" src="https://github.com/user-attachments/assets/79366150-0d39-4ccf-bcde-e6cfc2dc2b3a" />
+<img width="1875" height="429" alt="image" src="https://github.com/user-attachments/assets/30402822-a88f-4729-bbee-304163ce55f1" />
+
 
 <h4> 4. Testes de API - Inserção (Postman)
   
@@ -50,7 +51,7 @@ Dados Finais no Cluster: Registros reais vindos da estação física ESP32_01.
 Histórico de Medições: Tabela detalhada das últimas leituras.
 
 Nota: O sensor realiza medições aproximadas para monitoramento ambiental.</h4>
-<img width="1880" height="815" alt="Captura de tela 2026-01-27 182039" src="https://github.com/user-attachments/assets/79abdf39-93e4-49ee-a52f-bf3db4ec8b80" />
+<img width="1877" height="776" alt="image" src="https://github.com/user-attachments/assets/e29730b5-6d5e-4d4e-9dbc-8d36c2796f10" />
 <img width="871" height="762" alt="Captura de tela 2026-01-27 181149" src="https://github.com/user-attachments/assets/1994ad03-68e9-4e0b-95f7-2ac8d4adb504" />
 <img width="1877" height="587" alt="Captura de tela 2026-01-27 182226" src="https://github.com/user-attachments/assets/a26d21df-9346-4146-b454-818aafe484b9" />
 <img width="710" height="884" alt="Captura de tela 2026-01-27 182410" src="https://github.com/user-attachments/assets/aeffb5dd-e43b-49b4-96c2-fe1efc1e3726" />
