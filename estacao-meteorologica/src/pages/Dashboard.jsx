@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import WeatherCard from "../components/WeatherCard"
 import WeatherChart from "../components/WeatherChart"
-import { Thermometer, Droplets, Wind, Gauge } from "lucide-react"
+import { Thermometer, Droplets, Gauge } from "lucide-react"
 import { getWeatherData } from "../services/weatherService"
 import { getWeatherHistory } from "../services/historyService"
 
@@ -9,7 +9,6 @@ export default function Dashboard() {
   const [weather, setWeather] = useState({
     temperature: 0,
     humidity: 0,
-    wind: 0,
     pressure: 0,
   })
 
@@ -42,7 +41,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <main className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <main className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         <WeatherCard
           title="Temperatura"
           value={weather.temperature}
@@ -57,14 +56,6 @@ export default function Dashboard() {
           unit="%"
           color="blue"
           icon={<Droplets size={28} />}
-        />
-
-        <WeatherCard
-          title="Vento"
-          value={weather.wind}
-          unit="km/h"
-          color="green"
-          icon={<Wind size={28} />}
         />
 
         <WeatherCard
