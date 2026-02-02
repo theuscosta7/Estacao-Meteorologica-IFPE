@@ -9,13 +9,12 @@ export default function WeatherCard({ title, value, unit, icon, color = "blue" }
 
   return (
     <div
-      className={`rounded-2xl p-6 text-white shadow-lg bg-gradient-to-br ${colors[color] || colors.blue
-        }`}
-    >
-      <div className="flex items-center justify-between">
+  className={`rounded-2xl p-6 text-white shadow-lg bg-gradient-to-br min-h-[130px] ${colors[color] || colors.blue}`}
+    > 
+      <div className="flex items-center justify-between h-full">
         <div>
           <p className="text-sm opacity-90">{title}</p>
-          <h2 className="text-3xl font-bold mt-1">
+          <h2 className="text-4xl font-bold mt-1 leading-none">
             {value}
             <span className="text-lg font-medium ml-1">{unit}</span>
           </h2>
