@@ -2,7 +2,7 @@
 <h3> Alunos: Mateus Costa e Adriel Aigle </h3>
 
 <h3> Este projeto é um sistema de monitoramento climático que utiliza uma estrutura Full Stack para coletar, armazenar e exibir dados de sensores (como o ESP32). 
-  O sistema conta com um backend em Node.js com Mongoose, banco de dados MongoDB Atlas e um frontend com React + Boostrap responsivo com gráficos em tempo real. </h3>
+  O sistema conta com um backend em Node.js com Mongoose, banco de dados MongoDB Atlas e um frontend com React + Tailwind responsivo com gráficos em tempo real. </h3>
 
 <h3> Fluxo de Desenvolvimento e Demonstração: </h3>
 <h4> 1. Conexão com o Banco de Dados
