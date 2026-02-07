@@ -1,5 +1,5 @@
 <h1> Estação Meteorológica - 5º ADS </h1>
-<h3> Alunos: Mateus Costa </h3>
+<h3> Aluno: Mateus Costa </h3>
 
 <h3> Este projeto é um sistema de monitoramento climático que utiliza uma estrutura Full Stack para coletar, armazenar e exibir dados de sensores (como o ESP32). 
   O sistema conta com um backend em Node.js com Mongoose, banco de dados MongoDB Atlas e um frontend com React + Tailwind responsivo com gráficos em tempo real. </h3>
